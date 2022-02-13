@@ -69,6 +69,42 @@ int SwapLinearSearch(struct Array *arr, int key){
     return -1;
 }
 
+int BinarySearch(struct Array arr, int key){
+    // The array value has to be sorted in order to use binarySearch.
+    int l = 0, h = arr.length;
+    int mid;
+    while(l <= h){
+        mid = (l + h) / 2;
+        if(arr.A[mid] == key){
+            return mid;
+        }
+        else if(arr.A[mid] > key){
+            h = mid - 1;
+        }
+        else{
+            l = mid + 1;
+        }
+    }
+    return -1;
+}
+
+int RecurBinarySearch(struct Array arr, int l, int h, int key){
+    int mid;
+    if(l <= h){
+        mid = (l + h) / 2;
+        if(arr.A[mid] == key){
+            return mid;
+        }
+        else if(arr.A[mid] > key){
+            return RecurBinarySearch(arr, l, mid-1, key);
+        }
+        else{
+            return RecurBinarySearch(arr, mid+1, h, key);
+        }
+    }
+    return -1;
+}
+
 
 int main(){
     struct Array arr = {{2, 3, 4, 5, 6}, 10, 5};
@@ -76,7 +112,8 @@ int main(){
     Append(&arr, 87);
     Insert(&arr, 5, 54);
     // Delete(&arr, 3);
-    cout << LinearSearch(arr, 54) << endl;
+    // cout << LinearSearch(arr, 54) << endl;
+    cout << BinarySearch(arr, 5487) << endl;
     Display(arr);
 }
 
