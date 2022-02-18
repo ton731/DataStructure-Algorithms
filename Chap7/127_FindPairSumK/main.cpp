@@ -5,7 +5,7 @@ using namespace std;
 void FindPairSumK(int *arr, int k){
     int max = 16;
     int *hash = new int(max+1);
-    for(int i=0; i<max; i++){
+    for(int i=0; i<10; i++){
         if(hash[k - arr[i]] != 0){
             cout << arr[i] << " + " << k-arr[i] << " = " << k << endl;
         }
