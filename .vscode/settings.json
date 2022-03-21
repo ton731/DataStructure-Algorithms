@@ -20,6 +20,7 @@
         // "/usr/local/include/opencv4"
     ],
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }
